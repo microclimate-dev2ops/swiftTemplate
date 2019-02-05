@@ -1,4 +1,4 @@
 apiVersion: v1
 description: A Helm chart for Kubernetes
-name: [PROJ_NAME_PLACEHOLDER]
+name: chartdirplaceholder
 version: 1.0.0
