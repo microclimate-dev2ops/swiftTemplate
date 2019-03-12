@@ -43,14 +43,6 @@ To run the application:
 To deploy your application to your Kubernetes cluster, run `helm install --name myapp .` in the `/chart/[PROJ_NAME_PLACEHOLDER]` directory. You need to make sure you change the `repository` variable in your `chart/[PROJ_NAME_PLACEHOLDER]/values.yaml` file points to the docker image containing your runnable application.
 
 ### Configuration
-Your application configuration information for any services is stored in the `localdev-config.json` file in the `config` directory. This file is in the `.gitignore` to prevent sensitive information from being stored in git. The connection information for any configured services that you would like to access when running locally, such as username, password and hostname, is stored in this file.
-
-The application uses the [CloudEnvironment package](https://github.com/IBM-Swift/CloudEnvironment) to read the connection and configuration information from the environment and this file. It uses `mappings.json`, found in the `config` directory, to communicate where the credentials can be found for each service.
-
-If the application is running locally, it can connect to IBM Cloud services using unbound credentials read from this file. If you need to create unbound credentials you can do so from the IBM Cloud web console ([example](https://console.ng.bluemix.net/docs/services/Cloudant/tutorials/create_service.html#creating-a-service-instance)), or using the CloudFoundry CLI [`cf create-service-key` command](http://cli.cloudfoundry.org/en-US/cf/create-service-key.html).
-
-When you push your application to IBM Cloud, these values are no longer used, instead the application automatically connects to bound services using environment variables.
-
 #### Iterative Development
 The `iterative-dev.sh` script is included in the root of the generated Swift project and allows for fast & easy iterations for the developer. Instead of stopping the running Kitura server to see new code changes, while the script is running, it will automatically detect changes in the project's **.swift** files and recompile the app accordingly.
 
